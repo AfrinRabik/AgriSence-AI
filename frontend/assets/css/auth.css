@@ -1,0 +1,207 @@
+/* ===========================
+   Authentication Styles
+   =========================== */
+
+.auth-background {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 450px;
+}
+
+.auth-box {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.5s ease-out;
+}
+
+.auth-logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-logo h1 {
+    color: var(--primary-green);
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.auth-logo p {
+    color: var(--medium-gray);
+    font-size: 13px;
+}
+
+.auth-form h2 {
+    color: var(--dark-green);
+    font-size: 22px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.auth-form .form-group {
+    margin-bottom: 20px;
+}
+
+.auth-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--dark-green);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.auth-form input,
+.auth-form select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--medium-gray);
+    border-radius: 6px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background-color: var(--light-gray);
+}
+
+.auth-form input:focus,
+.auth-form select:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    background-color: var(--white);
+    box-shadow: 0 0 8px rgba(39, 174, 96, 0.2);
+}
+
+.auth-form input::placeholder {
+    color: #95a5a6;
+}
+
+.auth-form .btn-primary {
+    width: 100%;
+    padding: 13px;
+    margin: 0;
+}
+
+.auth-form .btn-primary span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.auth-links {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--dark-gray);
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.auth-links a {
+    color: var(--primary-green);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.auth-links a:hover {
+    color: var(--dark-green);
+    text-decoration: underline;
+}
+
+.auth-links span {
+    color: var(--medium-gray);
+}
+
+.forgot-step {
+    animation: fadeIn 0.3s ease;
+}
+
+.step-description {
+    text-align: center;
+    color: var(--dark-gray);
+    font-size: 14px;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.email-display {
+    color: var(--dark-green);
+    font-weight: 600;
+    text-align: center;
+    font-size: 14px;
+    padding: 12px;
+    background-color: var(--light-gray);
+    border-radius: 6px;
+    border-left: 4px solid var(--primary-green);
+}
+
+.timer {
+    color: var(--medium-gray);
+    font-size: 12px;
+}
+
+#timer {
+    color: var(--primary-green);
+    font-weight: 600;
+}
+
+#resendBtn {
+    color: var(--primary-green);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#resendBtn:hover {
+    color: var(--dark-green);
+    text-decoration: underline;
+}
+
+#otp {
+    text-align: center;
+    letter-spacing: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+}
+
+.link-primary {
+    color: var(--primary-green);
+    font-weight: 600;
+}
+
+.link-primary:hover {
+    color: var(--dark-green);
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .auth-box {
+        padding: 25px;
+    }
+
+    .auth-logo h1 {
+        font-size: 24px;
+    }
+
+    .auth-form h2 {
+        font-size: 18px;
+    }
+
+    .auth-form input {
+        font-size: 16px;
+    }
+}
