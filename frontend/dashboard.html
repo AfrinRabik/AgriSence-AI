@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - AI Crop Recommendation</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body class="dashboard-body">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>🌾 Farmer Portal</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#" class="active">Dashboard</a></li>
+                <li><a href="javascript:showSection('farms')">My Farms</a></li>
+                <li><a href="javascript:showSection('recommendations')">Recommendations</a></li>
+                <li><a href="javascript:showProfile()" class="nav-profile">👤 <span id="farmerNameNav"></span></a></li>
+                <li><a href="javascript:logout()" class="btn-logout">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Dashboard Hero Section -->
+    <section class="hero-section" style="background: linear-gradient(135deg, rgba(39, 174, 96, 0.8), rgba(46, 204, 113, 0.8)), url('https://images.unsplash.com/photo-1625246333195-78d9c38ad576?w=1200') center/cover;">
+        <div class="hero-content">
+            <h1>Welcome, <span id="farmerNameHero">Farmer</span>! 👋</h1>
+            <p>Get AI-powered crop recommendations tailored to your farm</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="dashboard-container">
+        
+        <!-- Dashboard Section -->
+        <section id="dashboard-section" class="section active">
+            <div class="section-header">
+                <h2>📊 Dashboard Overview</h2>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">🌾</div>
+                    <div class="stat-content">
+                        <h3 id="farmCount">0</h3>
+                        <p>Active Farms</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-content">
+                        <h3 id="recCount">0</h3>
+                        <p>Recommendations</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📈</div>
+                    <div class="stat-content">
+                        <h3>💰</h3>
+                        <p>Profit Potential</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">💧</div>
+                    <div class="stat-content">
+                        <h3>🌊</h3>
+                        <p>Water Management</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quick-action">
+                <button class="btn btn-large btn-primary" onclick="showSection('add-farm')">
+                    ➕ Add New Farm
+                </button>
+                <button class="btn btn-large btn-secondary" onclick="showSection('farms')">
+                    🔄 View All Farms
+                </button>
+            </div>
+        </section>
+
+        <!-- Add Farm Section -->
+        <section id="add-farm" class="section">
+            <div class="section-header">
+                <h2>➕ Add New Farm</h2>
+                <button class="btn-back" onclick="showSection('dashboard-section')">← Back</button>
+            </div>
+
+            <form id="farmForm" class="form-card">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="farmName">🏞️ Farm Name</label>
+                        <input type="text" id="farmName" name="farmName" placeholder="e.g., Green Valley Farm" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">📍 Location</label>
+                        <input type="text" id="location" name="location" placeholder="City/District" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="totalArea">📐 Total Land Area (hectares)</label>
+                        <input type="number" id="totalArea" name="totalArea" placeholder="e.g., 5" step="0.1" min="0.1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="soilType">🌍 Soil Type</label>
+                        <select id="soilType" name="soilType" required>
+                            <option value="">Select Soil Type</option>
+                            <option value="Clay">Clay</option>
+                            <option value="Sandy">Sandy</option>
+                            <option value="Loamy">Loamy</option>
+                            <option value="Silty">Silty</option>
+                            <option value="Rocky">Rocky</option>
+                            <option value="Mixed">Mixed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="soilPH">🧪 Soil pH (Optional)</label>
+                        <input type="number" id="soilPH" name="soilPH" placeholder="e.g., 6.5" step="0.1" min="0" max="14">
+                    </div>
+                    <div class="form-group">
+                        <label for="waterAvailability">💧 Water Availability</label>
+                        <select id="waterAvailability" name="waterAvailability" required>
+                            <option value="">Select Water Availability</option>
+                            <option value="High">High (Well/Canal)</option>
+                            <option value="Medium">Medium (Bore Well)</option>
+                            <option value="Low">Low (Limited)</option>
+                            <option value="Rainwater">Rainwater Dependent</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="irrigationType">🚿 Irrigation Type</label>
+                        <select id="irrigationType" name="irrigationType">
+                            <option value="">Select Irrigation Type</option>
+                            <option value="Drip">Drip Irrigation</option>
+                            <option value="Sprinkler">Sprinkler</option>
+                            <option value="Flood">Flood/Furrow</option>
+                            <option value="Manual">Manual</option>
+                            <option value="None">None</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="weatherPattern">🌤️ Weather Pattern</label>
+                        <select id="weatherPattern" name="weatherPattern">
+                            <option value="">Select Weather Pattern</option>
+                            <option value="Monsoon">Monsoon</option>
+                            <option value="Tropical">Tropical</option>
+                            <option value="Temperate">Temperate</option>
+                            <option value="Arid">Arid</option>
+                            <option value="Semi-Arid">Semi-Arid</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="averageRainfall">🌧️ Average Annual Rainfall (mm)</label>
+                        <input type="number" id="averageRainfall" name="averageRainfall" placeholder="e.g., 800" step="10" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastHarvestedCrop">🌱 Last Harvested Crop</label>
+                        <input type="text" id="lastHarvestedCrop" name="lastHarvestedCrop" placeholder="e.g., Rice">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                    ✅ Create Farm & Get Recommendations
+                </button>
+            </form>
+        </section>
+
+        <!-- Farms List Section -->
+        <section id="farms" class="section">
+            <div class="section-header">
+                <h2>🏞️ My Farms</h2>
+                <button class="btn-back" onclick="showSection('dashboard-section')">← Back</button>
+            </div>
+
+            <div id="farmsList" class="farms-grid">
+                <p class="empty-message">No farms added yet. <a href="javascript:showSection('add-farm')">Add your first farm!</a></p>
+            </div>
+        </section>
+
+        <!-- Recommendations Section -->
+        <section id="recommendations" class="section">
+            <div class="section-header">
+                <h2>🎯 Crop Recommendations</h2>
+                <button class="btn-back" onclick="showSection('dashboard-section')">← Back</button>
+            </div>
+
+            <div id="recommendationsList" class="recommendations-container">
+                <p class="empty-message">No recommendations yet. <a href="javascript:showSection('farms')">Create a farm first!</a></p>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile" class="section">
+            <div class="section-header">
+                <h2>👤 My Profile</h2>
+                <button class="btn-back" onclick="showSection('dashboard-section')">← Back</button>
+            </div>
+
+            <div class="profile-card">
+                <form id="profileForm" class="form-card">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="profileName">Full Name</label>
+                            <input type="text" id="profileName" name="profileName" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="profileAge">Age</label>
+                            <input type="number" id="profileAge" name="profileAge" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="profileEmail">Email</label>
+                        <input type="email" id="profileEmail" name="profileEmail" readonly>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="profilePhone">Phone</label>
+                            <input type="tel" id="profilePhone" name="profilePhone" placeholder="Enter phone number">
+                        </div>
+                        <div class="form-group">
+                            <label for="profileCity">City</label>
+                            <input type="text" id="profileCity" name="profileCity" placeholder="Enter city">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="profileState">State</label>
+                            <input type="text" id="profileState" name="profileState" placeholder="Enter state">
+                        </div>
+                        <div class="form-group">
+                            <label for="profileAddress">Address</label>
+                            <input type="text" id="profileAddress" name="profileAddress" placeholder="Enter address">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">💾 Save Changes</button>
+                </form>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Message Alert -->
+    <div id="message" class="message"></div>
+
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
