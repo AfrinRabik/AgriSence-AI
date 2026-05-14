@@ -82,6 +82,9 @@ Example:
 3. Maize  
 
 ---
+# 📸 Project Screenshots
+
+![AI Crop Recommendation System](AgriSense_AI_Crop_Recommendation.png)
 
 ## ✅ Weather Suggestions
 
