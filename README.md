@@ -110,6 +110,7 @@ Example:
 
 This project uses simple rule-based AI logic instead of machine learning.
 ---
+```text
 # 📂 Project Structure
 
 AI-Crop-Recommendation-System
@@ -129,9 +130,10 @@ AI-Crop-Recommendation-System
 │   └── CropRecommendationApplication.java
 │
 └── README.md
+```
 ---
 # ⚙️ System Flow
-
+```text
 Farmer Input
      ↓
 Frontend Form
@@ -143,6 +145,7 @@ Rule-Based AI Analysis
 Crop Recommendation
      ↓
 Result Display
+```
 ---
 # 📥 Sample Input
 | Parameter   | Value   |
