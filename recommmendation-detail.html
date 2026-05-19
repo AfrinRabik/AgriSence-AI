@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation Details</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/recommendation.css">
+</head>
+<body class="dashboard-body">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>🌾 Farmer Portal</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="javascript:window.history.back()">← Back</a></li>
+                <li><a href="javascript:logout()" class="btn-logout">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <!-- Top Recommendation Card -->
+        <section id="topRecommendation" class="section recommendation-hero">
+            <div class="rec-header">
+                <h1 id="topCropName">Recommended Crop</h1>
+                <div class="match-badge" id="matchBadge">95% Match</div>
+            </div>
+
+            <div class="rec-hero-content">
+                <div class="crop-image-container">
+                    <img id="topCropImage" src="https://via.placeholder.com/300x300" alt="Crop" class="crop-image">
+                </div>
+
+                <div class="rec-hero-details">
+                    <div class="detail-item">
+                        <h3>💰 Expected Profit</h3>
+                        <p id="expectedProfit" class="highlight">₹0</p>
+                    </div>
+                    <div class="detail-item">
+                        <h3>📊 Market Price</h3>
+                        <p id="marketPrice">₹0 per unit</p>
+                    </div>
+                    <div class="detail-item">
+                        <h3>📈 Profit Margin</h3>
+                        <p id="profitMargin">0%</p>
+                    </div>
+                    <div class="detail-item">
+                        <h3>⏰ Time to Harvest</h3>
+                        <p id="daysToMaturity">120 days</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Analysis Section -->
+        <section class="section analysis-section">
+            <h2>📋 Detailed Analysis</h2>
+            
+            <div class="analysis-grid">
+                <div class="analysis-card soil-card">
+                    <h3>🌍 Soil Analysis</h3>
+                    <p id="soilAnalysis">Excellent soil compatibility</p>
+                </div>
+
+                <div class="analysis-card water-card">
+                    <h3>💧 Water Management</h3>
+                    <p id="waterAnalysis">Optimal water availability</p>
+                </div>
+
+                <div class="analysis-card climate-card">
+                    <h3>🌤️ Climate Analysis</h3>
+                    <p id="climateAnalysis">Climate conditions are suitable</p>
+                </div>
+
+                <div class="analysis-card economic-card">
+                    <h3>💹 Economic Feasibility</h3>
+                    <p id="economicAnalysis">Highly profitable crop</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cost Breakdown Section -->
+        <section class="section cost-section">
+            <h2>💵 Cost Breakdown (per hectare)</h2>
+            
+            <div class="cost-table-container">
+                <table class="cost-table">
+                    <thead>
+                        <tr>
+                            <th>Cost Type</th>
+                            <th>Amount (₹)</th>
+                            <th>Percentage</th>
+                        </tr>
+                    </thead>
+                    <tbody id="costTableBody">
+                        <tr>
+                            <td>Seed Cost</td>
+                            <td id="seedCost">₹0</td>
+                            <td id="seedPercent">0%</td>
+                        </tr>
+                        <tr>
+                            <td>Fertilizer Cost</td>
+                            <td id="fertiliserCost">₹0</td>
+                            <td id="fertPercent">0%</td>
+                        </tr>
+                        <tr>
+                            <td>Water Cost</td>
+                            <td id="waterCost">₹0</td>
+                            <td id="waterPercent">0%</td>
+                        </tr>
+                        <tr>
+                            <td>Labour Cost</td>
+                            <td id="labourCost">₹0</td>
+                            <td id="labourPercent">0%</td>
+                        </tr>
+                        <tr class="total-row">
+                            <td>Total Cost</td>
+                            <td id="totalCost" class="highlight">₹0</td>
+                            <td>100%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="profit-calculation">
+                <div class="calc-item">
+                    <span>Expected Yield:</span>
+                    <strong id="expectedYield">5000 kg</strong>
+                </div>
+                <div class="calc-item">
+                    <span>Market Price:</span>
+                    <strong id="calcMarketPrice">₹2500</strong>
+                </div>
+                <div class="calc-item highlight">
+                    <span>Potential Revenue:</span>
+                    <strong id="potentialRevenue">₹12,500,000</strong>
+                </div>
+                <div class="calc-item">
+                    <span>Total Cost:</span>
+                    <strong id="calcTotalCost">₹17,500</strong>
+                </div>
+                <div class="calc-item profit-highlight">
+                    <span>Net Profit:</span>
+                    <strong id="netProfit">₹12,482,500</strong>
+                </div>
+            </div>
+        </section>
+
+        <!-- Water Management Tips -->
+        <section class="section tips-section">
+            <h2>💧 Water Management Tips</h2>
+            <div class="tips-grid">
+                <ul id="waterTipsList" class="tips-list">
+                    <li>Ensure consistent irrigation</li>
+                    <li>Monitor soil moisture regularly</li>
+                    <li>Use drip irrigation for efficiency</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Land Utilization Section -->
+        <section class="section tips-section">
+            <h2>🏞️ Land Utilization Suggestions</h2>
+            <div class="tips-grid">
+                <ul id="landTipsList" class="tips-list">
+                    <li>Allocate 60-80% for primary crop</li>
+                    <li>Reserve area for companion crops</li>
+                    <li>Practice crop rotation</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Marketing & Selling Locations Section -->
+        <section class="section market-section">
+            <h2>🛒 Best Markets & Selling Locations</h2>
+            
+            <div class="market-grid" id="marketGrid">
+                <div class="market-card">
+                    <h3>📍 Market Channel</h3>
+                    <p class="market-location">Loading...</p>
+                    <p class="market-price">Price: ₹0</p>
+                    <p class="market-profit">Profit: 0%</p>
+                </div>
+            </div>
+
+            <div class="market-tips">
+                <h3>💡 Selling Tips:</h3>
+                <ul>
+                    <li>🏪 Visit local APMC mandis for government MSP</li>
+                    <li>👨‍🌾 Direct farm-gate sales give 30-40% higher profit</li>
+                    <li>🤝 Join farmer producer organizations for collective selling</li>
+                    <li>🏭 Contact processing units for bulk orders</li>
+                    <li>📦 Maintain proper post-harvest handling for quality</li>
+                    <li>💻 Use online platforms like eNAM for better prices</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Alternative Crops Section -->
+        <section class="section alternatives-section">
+            <h2>🌱 Alternative Crop Recommendations</h2>
+            
+            <div class="alternatives-grid" id="alternativesGrid">
+                <p class="loading">Loading alternative recommendations...</p>
+            </div>
+        </section>
+
+        <!-- Risk Factors Section -->
+        <section class="section risk-section">
+            <h2>⚠️ Risk Factors & Management</h2>
+            
+            <div class="risk-grid">
+                <div class="risk-item">
+                    <h3>🐛 Common Pests</h3>
+                    <ul id="pestList" class="risk-list">
+                        <li>Monitor regularly</li>
+                    </ul>
+                </div>
+
+                <div class="risk-item">
+                    <h3>🦠 Diseases</h3>
+                    <ul id="diseaseList" class="risk-list">
+                        <li>Use resistant varieties</li>
+                    </ul>
+                </div>
+
+                <div class="risk-item">
+                    <h3>🛡️ Prevention Methods</h3>
+                    <ul id="preventionList" class="risk-list">
+                        <li>Integrated Pest Management</li>
+                    </ul>
+                </div>
+
+                <div class="risk-item">
+                    <h3>📋 Disease Control</h3>
+                    <ul id="diseaseControlList" class="risk-list">
+                        <li>Proper field hygiene</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sustainability Section -->
+        <section class="section sustainability-section">
+            <h2>🌱 Sustainable Farming Practices</h2>
+            
+            <div class="sustainability-tips">
+                <ul id="sustainabilityList" class="tips-list">
+                    <li>♻️ Practice crop rotation for soil health</li>
+                    <li>🌿 Use organic fertilizers</li>
+                    <li>💧 Implement water conservation</li>
+                    <li>🐝 Encourage biodiversity</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Action Buttons -->
+        <section class="action-buttons">
+            <button class="btn btn-primary" onclick="downloadReport()">📥 Download Report</button>
+            <button class="btn btn-secondary" onclick="window.history.back()">← Go Back</button>
+        </section>
+    </div>
+
+    <!-- Message Alert -->
+    <div id="message" class="message"></div>
+
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/recommendation-detail.js"></script>
+</body>
+</html>
